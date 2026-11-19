@@ -1,6 +1,6 @@
 # Privacy rules
 
-Built to the shape of India's Digital Personal Data Protection Act, 2023 and the DPDP Rules, 2025 (notified 13 November 2025; notice, consent, security, breach and retention duties phase in by 13 May 2027). Follow these now, whatever the phase-in date: users trust a product that already behaves this way. This is design guidance, not legal advice; a product handling user data at scale needs a lawyer's review.
+These rules are a **global baseline**: purpose limitation, data minimisation, consent, security and deletion, the principles shared by the EU GDPR, India's DPDP Act 2023 and DPDP Rules 2025, and most modern data-protection laws. Follow them in every country. Where a local law is stricter (for example on health data, children's data or national ID numbers), follow the local law as well; when unsure, take the stricter reading. This is design guidance, not legal advice; a product handling user data at scale needs a lawyer's review.
 
 ## Purpose limitation
 
@@ -14,8 +14,8 @@ Passwords, OTPs, PINs, UPI PINs, CVVs, full card numbers, net-banking credential
 
 ## Minimise what you do handle
 
-- Aadhaar: masked (last 4 digits) everywhere except a portal field that requires the full number, which the user types themselves or confirms on screen.
-- PAN, account numbers, policy numbers: mask in notes and summaries (last 4).
+- National ID numbers (Aadhaar in India, Social Security Number in the US, National Insurance number in the UK, CPF in Brazil, and their equivalents): masked (last 4 characters) everywhere except a portal field that requires the full number, which the user types themselves or confirms on screen.
+- Tax IDs (PAN and equivalents), account numbers, policy numbers: mask in notes and summaries (last 4).
 - Documents: ask for only the pages that prove the point; suggest redacting unrelated transactions and addresses.
 - Health, caste, religion, and other sensitive details: only when a form legally requires them and the user agrees.
 

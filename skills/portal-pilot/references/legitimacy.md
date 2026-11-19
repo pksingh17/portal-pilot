@@ -12,7 +12,8 @@ Strong signals by country (check the exact domain, not just that the string appe
 | United States | `.gov`, `.mil` | Only verified US government entities can register `.gov`; state sites also use `.gov` (e.g. `ca.gov`) |
 | United Kingdom | `.gov.uk`, `.nhs.uk`, `.police.uk`; regulators like `financial-ombudsman.org.uk` | Independent ombudsmen often use `.org.uk`: confirm via gov.uk |
 | EU | `europa.eu`; national domains vary | EU-wide ODR platform closed 20 July 2025: don't route users there |
-| Others | Government second-level domains (`.gov.au`, `.gc.ca`/`canada.ca`, `.gov.sg`, `.go.jp`, `.gob.mx`, etc.) | Confirm via the national government directory |
+| Others | Government second-level domains (`.gov.au`, `.gc.ca`/`canada.ca`, `.gov.sg`, `.go.jp`, `.gob.mx`, `.gov.br`, `.gov.za`, `.go.ke`, etc.) | Confirm via the national government directory |
+| Unfamiliar country | Find the national government portal first and confirm it from two independent official mentions (for example an embassy site and the country's central bank). Then accept only bodies that portal, or a ministry it links to, links to | Many countries have no reserved government domain, or use `.com`/`.org` for official bodies. The link chain from the national portal is the proof, not the domain |
 
 ## 2. Second source
 

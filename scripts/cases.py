@@ -4,6 +4,7 @@
 Usage:
   python3 cases.py due   CASES_DIR [--within 3] [--today YYYY-MM-DD]
   python3 cases.py score CASES_DIR
+  python3 cases.py new   CASES_DIR SHORT-NAME [--today YYYY-MM-DD]
 
 CASES_DIR holds one folder per case, each with a case.md (see references/case-file.md).
 
@@ -12,6 +13,10 @@ due    lists open cases whose Next action ("By:") or any deadline ("Act by:") is
        that are missing a date. Exit code 1 if anything is overdue or due, else 0.
 score  counts the rung each logged run reached, per portal:
        1 filed, 2 ready at submit, 3 ready pack, 4 offline route.
+new    creates CASES_DIR/SHORT-NAME/case.md from the bundled template, with today's
+       dates filled in. SHORT-NAME is lowercase letters, digits and hyphens. Refuses
+       to overwrite an existing case. The new case shows under "NEEDS A DATE" in
+       `due` until its Next action has a real "By:" date.
 """
 import re
 import sys
@@ -156,7 +161,43 @@ def cmd_score(root):
     return 0
 
 
+TEMPLATE = Path(__file__).resolve().parent.parent / "skills" / "portal-pilot" / "assets" / "templates" / "case.md"
+
+
+def cmd_new(root, name, today):
+    if not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", name):
+        print(f'Bad short name "{name}": use lowercase letters, digits and hyphens, e.g. bank-double-debit')
+        return 2
+    folder = Path(root) / name
+    if (folder / "case.md").exists():
+        print(f"A case already exists at {folder / 'case.md'}; not overwriting.")
+        return 2
+    if not TEMPLATE.is_file():
+        print(f"Template not found at {TEMPLATE}")
+        return 2
+    lines = []
+    for line in TEMPLATE.read_text(encoding="utf-8").splitlines():
+        if line.startswith("# CASE:"):
+            line = f"# CASE: {name}"
+        elif line.startswith("Status:"):
+            line = "Status: OPEN"
+        elif line.startswith("Opened:"):
+            line = f"Opened: {today.isoformat()}    Last updated: {today.isoformat()}"
+        elif line.startswith("- Act by:"):
+            line = f"<!-- example: {line} -->"  # keep the format visible, but not parsed as a deadline
+        lines.append(line)
+    folder.mkdir(parents=True, exist_ok=True)
+    (folder / "case.md").write_text("\n".join(lines) + "\n", encoding="utf-8")
+    print(f"Created {folder / 'case.md'}")
+    return 0
+
+
 def main(argv):
+    if argv[:1] == ["new"] and len(argv) >= 3:
+        today = date.today()
+        if "--today" in argv:
+            today = parse_date(argv[argv.index("--today") + 1]) or today
+        return cmd_new(argv[1], argv[2], today)
     if len(argv) < 2 or argv[0] not in ("due", "score"):
         print(__doc__)
         return 2

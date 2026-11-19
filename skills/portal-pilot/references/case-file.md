@@ -4,43 +4,7 @@ Real tasks run for weeks: a complaint, a 30-day wait, an escalation, a refund. C
 
 Location: `portal-pilot/cases/<short-name>/case.md` (for example `cases/hdfc-double-debit/case.md`). Keep drafts and letters beside it in the same folder. If no working folder is available, say so and give the user the case file as a downloadable file to keep and re-attach next time.
 
-```
-# CASE: [short name]
-Status: OPEN | WAITING | ESCALATED | RESOLVED | DROPPED
-Opened: [date]    Last updated: [date]
-
-## Task contract
-[paste the confirmed contract]
-
-## Route
-[the route card, condensed: each body, its type, its rule, verified or UNVERIFIED, source URL, checked YYYY-MM-DD]
-Current step: [which body we're at]
-
-## Field sheet
-| Field | Value (masked) | Source | Confirmed by user |
-
-## Timeline
-- [date] [what happened] [reference number] [who did it: user / agent]
-
-## Deadlines
-[full deadline records: trigger event and date, rule, counting, result, status, source]
-- Act by: YYYY-MM-DD | Last day: YYYY-MM-DD | [what this deadline is] | [LEGAL or PLAN] | [CONFIRMED / PROVISIONAL / UNVERIFIED]
-
-LEGAL = a limit set by a rule (with its source). PLAN = a date we chose to keep things moving. Inside a full deadline record, indent every line so only the top-level `- Act by:` line is read as a deadline.
-
-## Next action
-What: [one specific action]
-Who: [user / agent with user at the gates]
-By: YYYY-MM-DD
-User time needed: [minutes]
-Reminder: [scheduled task ID, or "user's own calendar"]
-
-## Runs
-- YYYY-MM-DD | portal: [short portal name] | rung: [1-4] | stopped: [where] | why: [reason]
-
-## Documents
-[file names in this folder and what each proves]
-```
+Template: [`assets/templates/case.md`](../assets/templates/case.md). Create a new case from it with `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py new <cases folder> <short-name>`, which fills in today's dates.
 
 Rules:
 - **Masked identifiers only.** Account, card, policy, Aadhaar, PAN: last four digits. Never passwords, OTPs, PINs, CVVs.

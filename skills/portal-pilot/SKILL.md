@@ -47,9 +47,15 @@ If you can't launch sub-agents in this environment, do their jobs yourself in th
 - **The user's part is packed into one sitting** (Step 4), not scattered across the task.
 - **Sub-agents return partial results, never nothing.** If one comes back thin, use what it found, fill the gap yourself or send a narrower follow-up; don't restart it from zero.
 
-## Returning users: check for a case first
+## Start: read the user's folder
 
-Before Step 0, look for `portal-pilot/cases/` in the user's working folder. If a case matches what the user is talking about, read it, tell them in three lines where things stand and what's due, and continue from its **Next action**. Don't re-ask what the case file already answers. Format in `references/case-file.md`.
+Before Step 0, look for `portal-pilot/` in the user's working folder.
+
+- **`me.md`** (written by the `setup` skill): country, region, languages, default help level, people they act for, portals they have accounts on. Use it to fill the contract's Where and For whom, to pick the language, and to set how far to go (`find`: stop at the route card; `prepare`: stop at the ready pack; `operate`: run the sitting). Don't re-ask what it answers; do ask if the task clearly differs ("This one's in the UK, not India: right?"). The user can change the level for any single task.
+- **`memory.md`**: how bodies and companies behaved before, and how the user likes letters written. Use past behaviour as evidence in letters ("this is the second time this year") only when the case files back it up.
+- **No `me.md`:** carry on without it. Never make setup a condition for helping. Offer it once, in the closing message of the first task (Step 6).
+
+Then look for `portal-pilot/cases/`. If a case matches what the user is talking about, read it, tell them in three lines where things stand and what's due, and continue from its **Next action**. Don't re-ask what the case file already answers. Format in `references/case-file.md`.
 
 ## Step 0: Intent
 
@@ -82,11 +88,11 @@ Show the contract and ask **"Is this right?"** in the same message as any follow
 
 **Refuse and redirect** goals that need deception or law-breaking (filing without consent, false details, bypassing CAPTCHAs or access controls, collecting other people's data). Say why in one line and offer the lawful route.
 
-Open a case file as soon as the contract is confirmed, for anything beyond a find-only request.
+Open a case file as soon as the contract is confirmed, for anything beyond a find-only request: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py new portal-pilot/cases <short-name>` creates it from the template; then fill it in.
 
 ## Step 1: Route
 
-Unless a current playbook or a bundled domain skill already settles it, send the contract to the **route-finder**. It returns a route card: every body in order, each with rules, official URL, a legitimacy verdict, and a **verbatim quote plus URL for every rule**.
+**Saved routes first.** Look for a matching saved route in this skill's `routes/` folder and the user's `portal-pilot/routes/` folder, and reuse it as `references/saved-routes.md` allows for the task's Stakes. Otherwise, unless a current playbook or a bundled domain skill already settles it, send the contract to the **route-finder**. It works in any country: there is no list of supported countries. It returns a route card: every body in order, each with rules, official URL, a legitimacy verdict, and a **verbatim quote plus URL for every rule**.
 
 Then verify, scaled to Stakes:
 - **LOW:** read the card; check the domains against `references/legitimacy.md`.
@@ -95,7 +101,9 @@ Then verify, scaled to Stakes:
 
 Anything that fails verification stays on the card as UNVERIFIED with where to confirm it. Never round an UNVERIFIED figure up to a fact.
 
-**Domain skills.** For Indian complaints, refunds and RTI requests, load the bundled `grievance-agent` skill and follow its route types, deadline protocol and letter templates. Portal Pilot runs the portal; the domain skill supplies the law. Outside India, never carry Indian deadlines or forums across borders, and apply the stricter of `references/privacy.md` and local data-protection law.
+Once the card is verified, **save it** to the user's `portal-pilot/routes/` folder (`references/saved-routes.md`), stripped of personal data, so the next task in that country starts warm.
+
+**Domain skills.** Some countries have a bundled deep pack. For Indian complaints, refunds and RTI requests, load the bundled `grievance-agent` skill and follow its route types, deadline protocol and letter templates. Portal Pilot runs the portal; the domain skill supplies the law. Everywhere else, the route-finder researches live. Never carry one country's deadlines or forums into another, and apply the stricter of `references/privacy.md` and local data-protection law. Explain the route in the user's language, but keep official quotes in the original with a translation.
 
 **Playbooks.** Look in this skill's `playbooks/` folder and in the user's `portal-pilot/playbooks/` folder. Check "Last walked": under 60 days, follow it; older, treat it as hints and let the operator explore. Save new and updated playbooks to the user's folder.
 
@@ -152,6 +160,8 @@ At the final screen the operator stops. Show the user a **review summary**: ever
 - **Log the run** in the case file's Runs section: date, portal, rung reached, where it stopped and why. `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py score <cases folder>` shows which portals reach rung 1 and which stall.
 - **Next action date.** If the user names none, use the earlier of the nearest act-by date and three days from today, and tell them.
 - **Wake-ups.** Tasks die in the waiting. In the closing message of the user's first case, offer once to set up a daily **due-check**: a scheduled task, at a time the user picks, whose prompt is "Run the portal-pilot due-check skill on [cases folder]". It needs access to wherever the cases live; if that's a folder on the user's computer, say the computer must be on. Confirm only once the task exists. With no scheduling tool, give the date for their own calendar and tell them to say "run my due-check" any time. Never imply background monitoring that isn't set up.
+- **Memory.** Add a line to `memory.md` when something worth knowing next time actually happened: how a body replied and how fast, an outcome, an edit the user made to a draft (what it shows about how they write), anything they said not to do again. Never a guess, never a full identifier.
+- **Setup.** If there is no `me.md`, offer once in the closing message: "Want me to remember your country, language and how much you'd like me to do? Takes about three minutes." If yes, run the `setup` skill.
 - The **status watcher** checks a tracking page or classifies a reply on request.
 - Update the playbook (`references/playbook-format.md`), stripped of all personal data.
 - Tell the user what personal data was handled and where it now lives (the case file, masked). They can delete the case folder at any time.

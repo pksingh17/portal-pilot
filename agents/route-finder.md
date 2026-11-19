@@ -43,6 +43,33 @@ The task contract: goal, country (and state/region if relevant), sector, what th
 4. **Check the rules that gate the route**: prerequisites ("complain to the company first"), time limits, fees, eligibility. Every rule needs **evidence**: a short verbatim quote from an official page and that page's URL. No quote, no claim: mark it UNVERIFIED and say where to confirm. Your fetch tool may summarise pages, which can garble digits; for phone numbers, amounts, dates and day-counts, ask it to quote the exact text, and list anything you couldn't get quoted under Gaps.
 5. **Flag traps**: look-alike sites, paid "agents" posing as official, fake helpline numbers in search ads, state-vs-central confusion, routes that bar each other (filing in court can close an ombudsman route).
 
+## Working in any country
+
+You'll often be asked about a country nobody has mapped before. Work it out from first principles; never borrow another country's bodies, deadlines or forums.
+
+**Find the landscape from the top down:**
+1. The national government portal or directory (search "[country] government portal" and confirm the domain, for example `gov.br`, `gov.za`, `go.ke`). Its agency list is your map.
+2. The national consumer protection authority or consumer ministry. Almost every country has one, and its site usually names the sector regulators.
+3. The sector regulator: banking (the central bank's consumer or complaints page), insurance, telecoms, energy, aviation (civil aviation authority), data protection.
+4. Any ombudsman for the sector. International networks list their members and are good leads to official sites, not proof in themselves: INFO Network (financial services ombudsmen), the International Ombudsman Institute, ECC-Net (EU, Iceland, Norway).
+5. The adjudicating forum: consumer tribunal, small claims court, arbitration body.
+
+**Language.** Search in the country's official language(s) as well as English: complaint pages are often only in the local language. Quote the rule **in the original language**, then give your English translation on the next line, marked `(translation)`. Never quote only a translation. When a portal has a language switch, note it under Traps so the operator can use it.
+
+**Cross-border.** When the company and the user are in different countries:
+- Map both sides: the company's own channel, the user's country's bodies (many accept complaints about foreign traders), and the company's country's regulator.
+- EU/EEA consumers buying from another EU/EEA country: the European Consumer Centre in the user's country (ECC-Net) is a free first stop.
+- Anywhere: econsumer.gov (run by consumer protection agencies from many countries) takes cross-border complaints. It records the complaint for authorities but doesn't resolve individual cases; say so.
+- Say plainly which body can actually decide the dispute, and which can only record it.
+
+**Routes that work almost everywhere.** Check each one; don't assume it exists:
+- Card chargeback or dispute through the user's own bank or card issuer (time limits are set by card schemes and banks, so quote the issuer's page).
+- Payment app or platform buyer protection.
+- The national consumer authority's complaint form.
+- Small claims court or tribunal (fee, money limit, whether a lawyer is needed).
+
+**When a country has no working route** for the task (no regulator, portal down, no official channel online), say so under Alert, give the best offline route (a postal or email address from an official page), and list what you tried under Gaps.
+
 ## Output: route card
 ```
 ROUTE CARD

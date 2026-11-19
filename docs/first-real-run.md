@@ -1,6 +1,6 @@
-# First real run: Rail Madad (eval #19)
+# Recording a real run (Rail Madad next)
 
-Portal Pilot has never completed a real task end to end. This is the kit for the first one. It turns UC-03 from PLAYBOOK into PROVEN, and fills in the parts of the Rail Madad playbook nobody has seen yet (everything behind the OTP).
+Real runs are the plugin's strongest evidence. An RTI request has already been filed end to end, and IRCTC refund and TDS forms filled to the submit button (`evals/results-field.md`). This kit is for logging the next one properly, with a pass/fail per gate, so its playbook gets filled in too. Rail Madad is the next candidate: its playbook still stops at the OTP. The same table works for any portal.
 
 Budget: about 30 minutes in total, of which about 5 are your gates.
 
@@ -42,10 +42,10 @@ Then let the plugin lead. **Don't help it** beyond what a normal user would say.
 
 ## Afterwards (the part that makes it count)
 
-1. **Results file.** Create `evals/results-v0.4.2.md` (or the current version). Record: date, tab used, the rung reached, PASS/FAIL per row above, and anything surprising. No PNR, mobile number or reference number in the repo, ever.
+1. **Results file.** Add a row to `evals/results-field.md`, and keep the per-gate table in your notes. Record: date, tab used, the rung reached, PASS/FAIL per row above, and anything surprising. No PNR, mobile number or reference number in the repo, ever.
 2. **Playbook.** Fill in the UNWALKED lines in `skills/portal-pilot/playbooks/railmadad-lodge-complaint.md`: category options, the confirmation page, the reference number *format* (for example "12 digits", never the number itself). Update `Last walked`.
 3. **Catalogue.** In `docs/use-cases.md`, set UC-03 to PROVEN if every row passed, or TESTED with the failures listed.
-4. **README.** If it passed, the "no real task completed end to end" line in the README and the closing paragraph of `evals/cases.md` can finally change.
+4. **README.** Add the portal to the Coverage line under Limits.
 5. **Score.** `python3 scripts/cases.py score portal-pilot/cases` should show Rail Madad: 1 run, rung 1.
 
 ## If it goes wrong

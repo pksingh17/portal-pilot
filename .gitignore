@@ -2,6 +2,6 @@ __pycache__/
 *.pyc
 .DS_Store
 *.plugin
-# never commit real case files
-portal-pilot/cases/
+# never commit a user's personal folder (me.md, memory.md, cases, routes)
+/portal-pilot/
 cases/

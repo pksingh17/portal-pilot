@@ -9,7 +9,7 @@ Tasks rarely fail at the form. They fail in the waiting: the 30 days pass, nobod
 
 ## Steps
 
-1. **Find the cases.** Use the folder named in the request; otherwise `portal-pilot/cases/` in the user's working folder. If there is none, say so in one line and stop.
+1. **Find the cases.** Use the folder named in the request; otherwise `portal-pilot/cases/` in the user's working folder. If there is none, say so in one line and stop. If `portal-pilot/me.md` exists, write the report in its `reply_language` and drafts in its `letter_language`.
 
 2. **Run the check.**
    `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py due <cases folder> --within 3`

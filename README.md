@@ -31,6 +31,18 @@ Then just say what you need, in your own language:
 - *"I bought from a shop in another EU country and the refund never came"*
 - *"File an RTI about my stuck passport"*, or *"run my due-check"*
 
+## Everyday commands
+
+| Say | What happens |
+|---|---|
+| `Set me up` | Three-minute, skippable setup: your country, language, how much help you want, people you act for |
+| *Describe your problem* | Task contract, verified route, drafts, ready pack; then the form filled in your browser if you want |
+| `Who do I complain to about …?` | Route card only: the right official bodies, in order, each rule with its source |
+| `I'm ready, let's file` | The sitting: the plugin fills the form, you do every gate and press submit |
+| `They replied` + paste the reply | Reply classified (resolved, partial, stalling, rejected, suspicious) and the next step proposed |
+| `Run my due-check` | What's overdue or coming up across all your cases, with the next step already prepared |
+| `I moved to Germany` / `Talk to me in Hindi` | Updates your setup |
+
 ## What it can do today
 
 See [`docs/use-cases.md`](docs/use-cases.md) for the catalogue of supported jobs, each one's honest status, and the recipe for adding a new one.
@@ -57,6 +69,7 @@ See [`docs/use-cases.md`](docs/use-cases.md) for the catalogue of supported jobs
 | Component | Model | Purpose |
 |---|---|---|
 | `portal-pilot` skill | Session model (best on the strongest available) | Lead: intent, verification, judgment, review, case files, playbooks |
+| `setup` skill | Session model | One-time, skippable setup of your personal folder; later edits |
 | `due-check` skill | Session model | Daily wake-up: what's due across all cases, next step prepared, short report |
 | `grievance-agent` skill | Session model | Indian complaint and refund law: escalation routes, deadline protocol, letter templates |
 | `route-finder` agent | Sonnet | Finds and verifies bodies and portals; check mode refutes another card |
@@ -71,7 +84,18 @@ See [`docs/use-cases.md`](docs/use-cases.md) for the catalogue of supported jobs
 ## Setup
 
 - Needs the Claude in Chrome extension connected for browser work.
-- Case files and learned playbooks are saved to a `portal-pilot/` folder in the user's working folder.
+- Say **"set me up"** once (optional). Everything is saved to a `portal-pilot/` folder in your working folder, which you can read, edit or delete at any time:
+
+```
+portal-pilot/
+├── me.md          country, language, help level, people you act for
+├── memory.md      how bodies behaved before; how you like letters written
+├── cases/         one folder per task
+├── routes/        verified route cards for your country
+└── playbooks/     portal maps learned on your runs
+```
+
+No passwords, OTPs, PINs or full ID, account or card numbers are ever stored.
 
 ## Limits
 

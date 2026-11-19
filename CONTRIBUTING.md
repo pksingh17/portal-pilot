@@ -12,7 +12,8 @@ Never commit a real name, phone number, email, address, Aadhaar, PAN, account, c
 2. **Add a playbook** for a portal not yet covered. Follow [`references/playbook-format.md`](skills/portal-pilot/references/playbook-format.md). Mark anything you didn't personally see as `UNWALKED`.
 3. **Correct a rule** in the grievance references (`skills/grievance-agent/references/`). Every deadline, fee or limit must cite an **official** page (regulator, ministry, gazette) with a short quote. Blogs and aggregators are leads, not sources.
 4. **Report a bad route** as an issue: what you asked, what it said, what the official source says (with link).
-5. **Add an eval case** to [`evals/cases.md`](evals/cases.md) for any failure you found, so it can't come back.
+5. **Add a use case.** Follow the recipe in [`docs/use-cases.md`](docs/use-cases.md): scenario, route, playbook, evals, in that order.
+6. **Add an eval case** to [`evals/cases.md`](evals/cases.md) for any failure you found, so it can't come back.
 
 ## Before opening a pull request
 

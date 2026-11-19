@@ -14,7 +14,7 @@ If the user has an emergency (money just stolen, a deadline today or tomorrow, a
 ## Where the folder lives
 
 Use the most durable storage the environment offers:
-- **A working folder** (Claude Code, Cowork, any agent with files): create `portal-pilot/` there. Suggest a synced folder (Google Drive, iCloud, OneDrive, Dropbox) so it survives a lost laptop.
+- **A working folder** (Claude Code, Cowork, any agent with files): create `portal-pilot/` there. Suggest a synced folder (Google Drive, iCloud, OneDrive, Dropbox) so it survives a lost laptop. If the working folder is temporary (a sandbox or scratch area that may be cleared), say so plainly and offer the files as downloads too.
 - **A chat with no file storage:** build the files, give them to the user as downloads, and tell them to attach `me.md` at the start of the next session.
 
 ```
@@ -26,7 +26,7 @@ portal-pilot/
 └── playbooks/     portal maps learned on my runs (references/playbook-format.md)
 ```
 
-Templates: `assets/templates/` in the portal-pilot skill folder (`${CLAUDE_PLUGIN_ROOT}/skills/portal-pilot/assets/templates/`). Replace every `[...]`; delete lines that don't apply rather than leaving them blank.
+Templates: `assets/templates/` in the portal-pilot skill folder (`${CLAUDE_PLUGIN_ROOT}/skills/portal-pilot/assets/templates/`). Replace every `[...]`. A **skipped** question leaves its line out entirely. An **answered "none"** is written as `- none`, so a later task knows it was asked. Never keep a template line the user didn't give.
 
 If `portal-pilot/me.md` already exists, this is an **edit**: read it first and change only what the user asks.
 
@@ -36,7 +36,7 @@ Ask in the user's language. Every question can be skipped; a skipped answer is l
 
 **Round 1: where and which language.**
 - Which country do you live in? And state, province or region, if your problems are often local (electricity, local tax, state RTI)?
-- Which language should I talk to you in? And which language should letters and complaints be written in? (Often the same; sometimes the official language is different. Say so if the country's bodies accept other languages.)
+- Which language should I talk to you in? And which language should letters and complaints be written in? (Often the same; sometimes the official language is different. After they answer, say in one line if the country's bodies require or accept other languages, and mark it as general knowledge unless you checked an official source.)
 
 **Round 2: how much help, and reminders.**
 - Explain the three help levels in one line each and recommend one:
@@ -44,7 +44,8 @@ Ask in the user's language. Every question can be skipped; a skipped answer is l
   - `prepare`: I also draft everything and build a ready pack you can file from in ten minutes.
   - `operate`: I also fill the forms in your Chrome browser while you do every login, code, tick box, payment and submit.
   
-  Recommend `operate` if Claude in Chrome is connected, otherwise `prepare`. Say this is a default; any task can use a different level.
+  Recommend `operate` if Claude in Chrome is connected, otherwise `prepare`. Say this is a default; any task can use a different level. If they choose a different level, accept it without pushing back.
+- Examples in this round and the next should fit the user's country (ELSTER for Germany, the income tax portal or IRCTC for India).
 - Want a daily check for deadlines on your cases? If yes, at what time? (Set it up only once a scheduling tool confirms it exists; see the portal-pilot skill, Step 6.)
 
 **Round 3: optional details that save time later.** Say plainly that each one is optional and stays in their own folder.
@@ -59,7 +60,7 @@ Ask in the user's language. Every question can be skipped; a skipped answer is l
 1. Create the folder and its three sub-folders.
 2. Fill `me.md` and `memory.md` from the templates.
 3. **Never store** passwords, OTPs, PINs, CVVs or full ID, account or card numbers, even if the user offers them (`references/privacy.md` in the portal-pilot skill). If they paste one, say it's been left out and why.
-4. Show a five-line summary: country and region, languages, help level, reminders, people they act for. Ask "Is this right?" and fix what they correct.
+4. Show a short summary (add a line for any optional detail they gave): country and region, languages, help level, reminders, people they act for. Ask "Is this right?" and fix what they correct.
 5. Tell them where the files live and that they can read, edit or delete them at any time. Deleting `me.md` undoes setup.
 
 ## Then offer one useful next step

@@ -45,7 +45,7 @@ def read_case(path):
         t = line.strip().lstrip("-").strip()
         if t.startswith("# CASE:"):
             c["name"] = t[7:].strip() or c["name"]
-        elif t.startswith("Status:"):
+        elif t.startswith("Status:") and top:
             word = t[7:].strip().split()[0].upper() if t[7:].strip() else "OPEN"
             if "|" not in t:  # skip the template line listing every status
                 c["status"] = word

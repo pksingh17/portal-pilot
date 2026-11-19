@@ -39,7 +39,7 @@ Build rung 3 **before** opening any portal (Step 3). Then a portal that is down,
 
 ## How to distribute the work
 
-If you can't launch sub-agents in this environment, do their jobs yourself in the same order and say so once. For HIGH stakes, replace the check-mode agent with a separate pass of your own: start from the official sources, not from your card, and look for what's wrong. Tell the user the route was checked by one agent, not two.
+If you can't launch sub-agents in this environment, do their jobs yourself in the same order and tell the user once, in the first message that reports research ("I did the checking myself, without helper agents"). For HIGH stakes, replace the check-mode agent with a separate pass of your own: start from the official sources, not from your card, and look for what's wrong. Tell the user the route was checked by one agent, not two.
 
 - **Everything that doesn't need the user runs first, without asking**: route finding, verification, extraction, drafting, text checks. Run independent pieces at the same time: one route-finder per candidate body or country, one clerk per document, check mode alongside drafting.
 - **One operator per form**, start to finish. Splitting a single form across agents loses its state. Separate portals can run in separate tabs with one operator each.
@@ -51,7 +51,7 @@ If you can't launch sub-agents in this environment, do their jobs yourself in th
 
 Before Step 0, look for `portal-pilot/` in the user's working folder.
 
-- **`me.md`** (written by the `setup` skill): country, region, languages, default help level, people they act for, portals they have accounts on. Use it to fill the contract's Where and For whom, to pick the language, and to set how far to go (`find`: stop at the route card; `prepare`: stop at the ready pack; `operate`: run the sitting). Don't re-ask what it answers; do ask if the task clearly differs ("This one's in the UK, not India: right?"). The user can change the level for any single task.
+- **`me.md`** (written by the `setup` skill): country, region, languages, default help level, people they act for, portals they have accounts on. Use it to fill the contract's Where and For whom, to pick the language, and to set how far to go (`find`: stop at the route card; `prepare`: stop at the ready pack; `operate`: run the sitting). With `prepare`, still offer the sitting once in a line after the pack, without pushing. Don't re-ask what it answers; do ask if the task clearly differs ("This one's in the UK, not India: right?"). The user can change the level for any single task.
 - **`memory.md`**: how bodies and companies behaved before, and how the user likes letters written. Use past behaviour as evidence in letters ("this is the second time this year") only when the case files back it up.
 - **No `me.md`:** carry on without it. Never make setup a condition for helping. Offer it once, in the closing message of the first task (Step 6).
 
@@ -82,13 +82,13 @@ Stakes:       [LOW / MEDIUM / HIGH and why]
 
 Show the contract and ask **"Is this right?"** in the same message as any follow-ups (three at most, only those that change the plan). If the user answers the follow-ups but not the contract, treat silence as a yes only for LOW stakes; otherwise ask once more in a line.
 
-**Find-only requests** ("who do I complain to…", "where do I file…"): Done-when is "route card delivered". Run Step 1, explain the card in plain words, offer to take it further.
+**Find-only requests** ("who do I complain to…", "where do I file…"): Done-when is "route card delivered". Stakes are those of the underlying problem, because the user will rely on the card's deadlines: a money complaint with a deadline is MEDIUM even when you only map the route. Run Step 1, explain the card in plain words, offer to take it further.
 
 **Acting for someone else:** confirm they know and agree; they must be present for their own OTPs and consent; a parent or guardian consents for a child. If consent is unclear, or they agree but can't be present, prepare a ready pack addressed to **them** so they can file themselves, and stop before any portal action in their name. Don't suggest filing in the user's own name instead when the matter is the other person's records: many bodies refuse requests about someone else's personal information.
 
 **Refuse and redirect** goals that need deception or law-breaking (filing without consent, false details, bypassing CAPTCHAs or access controls, collecting other people's data). Say why in one line and offer the lawful route.
 
-Open a case file as soon as the contract is confirmed, for anything beyond a find-only request: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py new portal-pilot/cases <short-name>` creates it from the template; then fill it in.
+Open a case file as soon as the contract is confirmed, for anything beyond a find-only request: `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py new portal-pilot/cases <short-name> --today YYYY-MM-DD` creates it from the template (pass the task's real date; the machine clock can be wrong); then fill it in.
 
 ## Step 1: Route
 
@@ -100,6 +100,10 @@ Then verify, scaled to Stakes:
 - **HIGH:** also send the finished card to a **second, fresh route-finder in check mode**, whose job is to refute it. Resolve every disagreement from official pages before acting. Tell the user plainly which points a professional (CA, lawyer) should confirm.
 
 Anything that fails verification stays on the card as UNVERIFIED with where to confirm it. Never round an UNVERIFIED figure up to a fact.
+
+**When two official sources disagree** (a regulator says 30 days, the company's page says 90), say so plainly, quote both, and plan on the stricter reading. Note the conflict on the card and in the saved route.
+
+**When the user wants to skip a required step** ("take me straight to the Ombudsman"), say so in your first message, quote the rule that requires the step, and show the fastest lawful path: draft the required step now and prepare the later one so it's ready the day it opens.
 
 Once the card is verified, **save it** to the user's `portal-pilot/routes/` folder (`references/saved-routes.md`), stripped of personal data, so the next task in that country starts warm.
 
@@ -123,7 +127,7 @@ Some values the user types themselves during the sitting: full identity and acco
 
 Portals time out, often in minutes, and usually while the user is hunting for a document. So finish everything first:
 
-- Draft every free-text answer (complaint, request, description). Check each against the portal's rules with `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/textcheck.py` (length limit, banned or allowed characters from the playbook). Fix and re-check until it passes.
+- Draft every free-text answer (complaint, request, description). Check each against the portal's rules with `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/textcheck.py` (length limit, banned or allowed characters from the playbook). Fix and re-check until it passes. With no playbook, check against a cautious default (`--max 2000 --ascii`), say the portal's real limits are unknown, and also keep a 500-character summary ready, since many portals have a short field.
 - Confirm attachments exist in the format, size and file-name style the portal accepts. The user uploads files themselves.
 - Settle in advance every judgment call the playbook lists (which category, which option), with the user if needed, so nothing new has to be decided once the portal is open.
 - Get the user's approval of the field sheet and drafts.
@@ -137,7 +141,9 @@ You will:    1. [gate, in plain words]  2. [gate]  3. [review and press submit]
 I do everything in between.
 ```
 
-If the user can't sit now, hand over the ready pack, set the Next action and date, and stop. They can file alone from the pack or come back for the sitting.
+If the user can't sit now, hand over the ready pack, set the Next action and date, and stop.
+
+**When the user's part is an email or a letter** (an email to a grievance officer, a postal letter), there's no portal sitting. The brief lists what to attach, the address (verified), and how to keep proof of sending. The ready-to-send letter is the ready pack (rung 3); once sent with proof of sending, log it as rung 1, since that is the filing. They can file alone from the pack or come back for the sitting.
 
 ## Step 4: Operate, in one sitting
 
@@ -160,7 +166,8 @@ At the final screen the operator stops. Show the user a **review summary**: ever
 - **Log the run** in the case file's Runs section: date, portal, rung reached, where it stopped and why. `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py score <cases folder>` shows which portals reach rung 1 and which stall.
 - **Next action date.** If the user names none, use the earlier of the nearest act-by date and three days from today, and tell them.
 - **Wake-ups.** Tasks die in the waiting. In the closing message of the user's first case, offer once to set up a daily **due-check**: a scheduled task, at a time the user picks, whose prompt is "Run the portal-pilot due-check skill on [cases folder]". It needs access to wherever the cases live; if that's a folder on the user's computer, say the computer must be on. Confirm only once the task exists. With no scheduling tool, give the date for their own calendar and tell them to say "run my due-check" any time. Never imply background monitoring that isn't set up.
-- **Memory.** Add a line to `memory.md` when something worth knowing next time actually happened: how a body replied and how fast, an outcome, an edit the user made to a draft (what it shows about how they write), anything they said not to do again. Never a guess, never a full identifier.
+- **Closing a case.** Fill the Outcome section (amount recovered, days taken, body that resolved it, what's still open), set Status, and replace the Next action with `What: none (closed YYYY-MM-DD)` and no `By:` line. Delete finished PLAN dates; keep LEGAL dates that still matter if the case reopens. If no other case is open, skip the due-check offer.
+- **Memory.** Only write `memory.md` if the user's `portal-pilot/` folder exists (created by setup or an earlier case); otherwise keep the lesson in the case file. Add a line to `memory.md` when something worth knowing next time actually happened: how a body replied and how fast, an outcome, an edit the user made to a draft (what it shows about how they write), anything they said not to do again. Never a guess, never a full identifier.
 - **Setup.** If there is no `me.md`, offer once in the closing message: "Want me to remember your country, language and how much you'd like me to do? Takes about three minutes." If yes, run the `setup` skill.
 - The **status watcher** checks a tracking page or classifies a reply on request.
 - Update the playbook (`references/playbook-format.md`), stripped of all personal data.

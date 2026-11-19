@@ -4,7 +4,7 @@ Real tasks run for weeks: a complaint, a 30-day wait, an escalation, a refund. C
 
 Location: `portal-pilot/cases/<short-name>/case.md` (for example `cases/hdfc-double-debit/case.md`). Keep drafts and letters beside it in the same folder. If no working folder is available, say so and give the user the case file as a downloadable file to keep and re-attach next time.
 
-Template: [`assets/templates/case.md`](../assets/templates/case.md). Create a new case from it with `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py new <cases folder> <short-name>`, which fills in today's dates.
+Template: [`assets/templates/case.md`](../assets/templates/case.md). Create a new case from it with `python3 ${CLAUDE_PLUGIN_ROOT}/scripts/cases.py new <cases folder> <short-name> --today YYYY-MM-DD`, which fills in that date (without `--today` it uses the machine clock).
 
 Rules:
 - **Masked identifiers only.** Account, card, policy, Aadhaar, PAN: last four digits. Never passwords, OTPs, PINs, CVVs.

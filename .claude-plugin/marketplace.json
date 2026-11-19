@@ -9,7 +9,7 @@
       "name": "portal-pilot",
       "source": "./",
       "description": "An agent that finds the right official body for a task in any country and gets it done on their portals: it learns each portal as it goes, hands work to the right model, and keeps the human in charge of every gate (login, OTP, CAPTCHA, consent, payment, submit).",
-      "version": "0.5.0",
+      "version": "0.5.1",
       "license": "MIT"
     }
   ]

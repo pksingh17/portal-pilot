@@ -15,7 +15,6 @@ This file holds only what I chose to share. No passwords, OTPs, PINs or full ID,
 ## Contact
 - Phone that receives my OTPs: ends [last 4]
 - Email for replies: [address, or "I'll type it"]
-- Postal address: I'll type it on the portal
 
 ## People I act for
 <!-- One line each. Their own OTPs and consent are theirs to give, every time. -->

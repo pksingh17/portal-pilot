@@ -31,5 +31,8 @@ Reminder: [scheduled task ID, or "user's own calendar"]
 ## Runs
 - YYYY-MM-DD | portal: [short portal name] | rung: [1-4] | stopped: [where] | why: [reason]
 
+## Outcome
+<!-- Filled on close: amount recovered, days taken, body that resolved it, anything left open. -->
+
 ## Documents
 [file names in this folder and what each proves]

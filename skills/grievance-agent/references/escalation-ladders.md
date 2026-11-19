@@ -1,6 +1,6 @@
 # Escalation ladders (India)
 
-**Last verified: 29 October 2026** (banking section re-checked against RBI's RB-IOS 2026 FAQ and the 2019 TAT circular; railway TDR windows not yet confirmed on an official page). Timelines, limits and portals change. Confirm on the official portal before giving the user a date, especially for banking (a new RBI scheme took effect on 1 July 2026) and telecom (TRAI was consulting on amendments to its complaint regulations in 2026).
+**Last verified: 20 November 2026** (telecom appeal window and insurance ombudsman rules updated; consumer commission limits re-checked) (banking section re-checked against RBI's RB-IOS 2026 FAQ and the 2019 TAT circular; railway TDR windows not yet confirmed on an official page). Timelines, limits and portals change. Confirm on the official portal before giving the user a date, especially for banking (a new RBI scheme took effect on 1 July 2026) and telecom (TRAI was consulting on amendments to its complaint regulations in 2026).
 
 Every figure in this file is a starting point for verification, not a final answer. Under the skill's verification gate, any figure not re-checked against an official source in the current session must be shown to the user as UNVERIFIED.
 
@@ -51,19 +51,20 @@ For any failed UPI, IMPS, ATM, card or NACH transaction, compute the TAT, add th
 **Fraud and unauthorised transactions (urgent path):**
 - Block the card/account immediately via app or helpline.
 - Call **1930** (national cyber fraud helpline) and report at **cybercrime.gov.in**.
-- Report to the bank in writing at once. Under RBI's customer-liability rules, reporting within 3 working days generally limits the customer's liability for unauthorised electronic transactions where the customer wasn't negligent. Later reporting shifts more liability onto the customer.
+- Report to the bank in writing at once. Under RBI's customer-liability rules, reporting within 3 working days generally limits the customer's liability for unauthorised electronic transactions where the customer wasn't negligent. Later reporting shifts more liability onto the customer. A call to 1930 or a cybercrime.gov.in complaint does **not** count as reporting to the bank: report to the bank separately and get its complaint number.
+- **Rule change to confirm:** RBI direction RBI/2026-27/167 (June 2026) is reported to replace these liability rules from 1 January 2027 (5 calendar days to report; 45-day resolution). Transactions before that date stay under the 2017 rules. UNVERIFIED here: confirm on rbi.org.in before relying on it.
 - Then follow the normal ladder above for the refund.
 
 ---
 
 ## 2. Insurance (IRDAI-regulated: life, health, motor, general)
 
-**Rung 1 [PREREQ]: Insurer's Grievance Redressal Officer (GRO).** Insurers must acknowledge immediately and resolve within **14 days**.
+**Rung 1 [PREREQ]: Insurer's Grievance Redressal Officer (GRO).** Insurers must acknowledge immediately and resolve within **14 days**. A claim rejection letter is **not** this complaint: the Ombudsman needs a separate written representation to the insurer first (Insurance Ombudsman Rules 2017, Rule 14(3)(a): "the complainant has made a representation in writing or through electronic mail or online through website of the insurer"). GRO email addresses are listed by the Council for Insurance Ombudsmen at cioins.co.in.
 **Rung 2 [PARALLEL, recommended]: IRDAI via Bima Bharosa** (bimabharosa.irdai.gov.in), helplines **155255** / **1800 4254 732**, or complaints@irdai.gov.in. Bima Bharosa is linked to insurers' complaint systems but does **not** auto-escalate to the Ombudsman.
 **Rung 3 [FORUM, EXCLUSIVE]: Insurance Ombudsman (Bima Lokpal)**, under the Insurance Ombudsman Rules, 2017.
 - Eligible when the insurer rejects the complaint, the reply is unsatisfactory, or there's no reply within 30 days.
-- **User deadline: within one year** of the insurer's final reply, or one year after the 30-day period if no reply.
-- Claim value limit: up to ₹50 lakh.
+- **User deadline: within one year** of the insurer's reply rejecting the representation, or one year after the one-month period if no reply (Rule 14(3)(b)). Some official pages count from the claim rejection instead; plan on the earlier date.
+- Compensation cap: up to ₹50 lakh (Rule 17(3), as amended 9 November 2023; older copies of the Rules still say ₹30 lakh).
 - File online, by email, or at the Ombudsman office with jurisdiction over the insurer's branch.
 - Free. Award binds the insurer, not the policyholder.
 **Alternative [FORUM]: Consumer commission** (see section 7). Filing here bars the Ombudsman for the same matter.
@@ -75,7 +76,8 @@ For any failed UPI, IMPS, ATM, card or NACH transaction, compute the TAT, add th
 TRAI is a regulator and does not resolve individual complaints.
 
 **Rung 1 [PREREQ]: Operator's complaint centre.** Get a docket number. Service faults and billing issues have short resolution windows under TRAI quality-of-service rules.
-**Rung 2 [PREREQ for appeal]: Operator's Appellate Authority**, one per telecom circle. Details must be published on the operator's website (for example, Airtel's per-circle appellate page). Appeal in writing with the docket number if unresolved or unsatisfactory. Check the appeal time limit on the operator's page; TRAI's regulations were under amendment in 2026.
+**Rung 2 [PREREQ for appeal]: Operator's Appellate Authority**, one per telecom circle. Details must be published on the operator's website (for example, Airtel's per-circle appellate page). Appeal in writing with the docket number if unresolved or unsatisfactory.
+- **Appeal window: plan on 15 days.** TRAI's Telecom Consumers Complaint Redressal (Fourth Amendment) Regulations, 2026 (press release No. 146/2026, 2 November 2026) cut the window to file an appeal from 30 days to 15, and require the Appellate Authority to decide within 15 days. The press release gives no commencement date, and operators' own pages may still show older figures (Airtel's showed 90 days in November 2026). Until the start date is confirmed in the Gazette or on trai.gov.in, tell the user to appeal within 15 days. Source: https://www.trai.gov.in/sites/default/files/2026-11/PR_No146of2026.pdf
 **Then [FORUM]: Consumer commission** (section 7). **[PARALLEL]:** National Consumer Helpline (section 6) and CPGRAMS (section 8) for systemic issues.
 
 ---
@@ -111,7 +113,7 @@ Under the Consumer Protection (E-Commerce) Rules, 2020, every platform must appo
 
 - File online at **e-jagriti.gov.in** (replaced e-Daakhil from 1 January 2025) or in person.
 - **Which commission** is decided by the value of goods or services paid as consideration (Consumer Protection Jurisdiction Rules, 2021):
-  - District Commission: up to ₹50 lakh
+  - District Commission: up to ₹50 lakh (the 2019 Act's own text says ₹1 crore, but the 2021 Rules lowered it, and some government pages still show the old figure; the Supreme Court was reviewing these limits in 2026)
   - State Commission: above ₹50 lakh up to ₹2 crore
   - National Commission (NCDRC): above ₹2 crore
 - **Filing fee:** nil up to ₹5 lakh at the District Commission; small graded fees above that. Confirm the current schedule on e-Jagriti during filing.

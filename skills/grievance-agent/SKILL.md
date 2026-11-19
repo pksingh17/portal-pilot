@@ -33,7 +33,7 @@ Ask only what's missing, at most five questions in one message:
 4. What have you already done? Dates, channels, complaint or ticket numbers, and any replies.
 5. What proof do you have? (Invoices, screenshots, bank statements, emails, chat logs, call records, policy documents.)
 
-**Emergency fork.** If money was just stolen through fraud (unauthorised transaction, UPI scam, card misuse), stop triage and give the urgent steps from the ladders file first: block the card or account, call 1930, report at cybercrime.gov.in, and report to the bank in writing immediately. Speed of reporting changes the user's liability. Return to the full process after.
+**Emergency fork.** If money was just stolen through fraud (unauthorised transaction, UPI scam, card misuse), stop triage and give the urgent steps from the ladders file first: block the card or account, call 1930, report at cybercrime.gov.in, and report to the bank in writing immediately. Speed of reporting changes the user's liability. Return to the full process after. Urgency beats the verification gate for these first steps only: give them at once, label any rule you haven't yet checked as "confirming now", and confirm it in the next message. A 1930 call or cybercrime.gov.in report is **not** a report to the bank; the user must report to the bank separately.
 
 ## Step 2: Build the case file
 
@@ -79,7 +79,7 @@ DEADLINE: [what it is, e.g. "Last day to file with RBI Ombudsman"]
 Rules for computing:
 - Identify the trigger before counting. "When did the bank *receive* your complaint?" and "when did you *receive* their reply?" give different dates; ask if unclear.
 - When the start date is uncertain, count from the **earliest** plausible date so the user never misses the window.
-- Apply a **safety margin**: tell the user to act at least 7 days before any user-side deadline (15 days for a limitation period like the consumer commission's two years).
+- Apply a **safety margin**: tell the user to act at least 7 days before any user-side deadline (15 days for a limitation period like the consumer commission's two years). When the window itself is shorter than the margin (3 working days, 15 days), the Act by date is today.
 - Note when a period may count working days, when a holiday or weekend falls on the last day, and when a scheme lets the forum condone delay. Never tell the user a late filing will be condoned.
 - If a deadline has already passed, say so directly, then check for routes that remain open (a different forum, a longer limitation period, a condonation application with a lawyer).
 

@@ -57,9 +57,9 @@ Run these after every change to the plugin, each in a **fresh session** with onl
 |---|---|---|
 | 31 | route-finder, Brazil: online shop never delivered, seller ignoring the user | Finds the national consumer route (consumidor.gov.br and the state Procon) from official `.gov.br` pages; quotes kept in Portuguese with a `(translation)` line; no Indian or US bodies carried over |
 | 32 | route-finder, cross-border: buyer in Spain, seller in Germany, refund refused | Names the European Consumer Centre in Spain as a free first stop with an official source; separates bodies that decide disputes from bodies that only record them |
-| 33 | Lead, LOW stakes, a saved route 10 days old exists; then the same task with the route 45 days old | First run reuses the route without a route-finder call; second run sends route-finder to refresh and updates `Last verified` |
+| 33 | Lead, LOW stakes (a find-only request takes the stakes of the underlying problem, so pick a genuinely low-stakes task), a saved route 10 days old exists; then the same task with the route 45 days old | First run reuses the route without a route-finder call; second run sends route-finder to refresh, updates `Last verified` and keeps `Saved`; a lead self-check is said to the user |
 | 34 | Lead saves a verified route after a real case with amounts and a reference number | Saved file holds bodies, rules, URLs and quotes only; no amounts, dates, names or reference numbers from the case |
-| 35 | route-finder, a country with no sector ombudsman for the problem | Says so under Alert; checks card dispute, consumer authority and small claims; gives an offline route; nothing marked VERIFIED without evidence |
+| 35 | route-finder, a country with no sector ombudsman for the problem (check the premise first: Kenya's Communications Authority covers couriers, so pick another sector or country) | Says so under Alert, or names the body if one exists; checks card dispute, consumer authority and small claims; gives an offline route; nothing marked VERIFIED without evidence |
 
 ## Setup and memory
 

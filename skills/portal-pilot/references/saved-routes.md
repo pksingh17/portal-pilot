@@ -6,7 +6,7 @@ Route-finding is the most expensive research Portal Pilot does, and the answer i
 
 - Bundled: `routes/` in this skill folder (contributed, reviewed).
 - The user's own: `portal-pilot/routes/` in their working folder (saved by the lead after each verified card).
-- File name: `<country>-<sector>-<problem>.md`, all lowercase, ISO country code: `br-airline-cancelled-flight.md`, `de-bank-wrong-charge.md`, `in-insurance-claim-rejected.md`. Add the state or region after the country when the route is local: `us-ca-utility-billing.md`.
+- File name: `<country>-<sector>-<problem>.md`, all lowercase, ISO country code: `br-airline-cancelled-flight.md`, `de-bank-wrong-charge.md`, `in-insurance-claim-rejected.md`. Add the state or region after the country when the route is local: `us-ca-utility-billing.md`. When some steps belong to one organisation (a bank's own complaint portal), say so in the header and keep those steps; the next user with a different bank replaces only them.
 
 ## Format
 
@@ -37,4 +37,8 @@ Read the `Last verified` date, then scale to the new task's Stakes:
 
 A saved route never overrides an official page. If the page says something different, the page wins: update the saved file, note what changed and the date.
 
-After a refresh, overwrite the file and update `Last verified`. Offer the user to contribute it (see CONTRIBUTING.md).
+After a refresh, overwrite the file and update `Last verified`; keep the original `Saved` date. Offer the user to contribute it (see CONTRIBUTING.md).
+
+**Dates.** `Last verified` is the **oldest** check date of any rule on the card, not the newest. Keep each rule's own check date beside it. When you build a saved route from an older case file rather than a fresh route-finder card, use the case's check dates as they are, mark any step without a recorded check as UNCONFIRMED, and don't re-verify silently: either refresh properly or leave it marked.
+
+**Checked by one agent.** If the card was verified by the lead alone (no separate check-mode agent), write `Check mode run: lead self-check (YYYY-MM-DD)`. For HIGH stakes reuse, treat that as `no`.

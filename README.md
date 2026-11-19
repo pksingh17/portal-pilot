@@ -6,7 +6,7 @@ A plugin for Claude that helps with real-world paperwork on government and compa
 
 Built for India first (consumer complaints, RBI and insurance ombudsmen, IRCTC, RTI, CPGRAMS), with route-finding that works for other countries.
 
-> **Status: prototype.** The agents have passed controlled tests (see [`evals/results-v0.4.md`](evals/results-v0.4.md)), but no real filing has been completed end to end yet. Treat every output as a well-researched draft, not a guarantee.
+> **Status: early, field-tested.** Real tasks have been done on live portals: an RTI request filed end to end, and IRCTC refund and TDS forms filled to the submit button (see [`evals/results-field.md`](evals/results-field.md)). The agents also pass controlled tests ([`evals/results-v0.4.md`](evals/results-v0.4.md)). Portals change without notice, so check every value at the review screen.
 
 ## Disclaimer
 
@@ -73,7 +73,7 @@ See [`docs/use-cases.md`](docs/use-cases.md) for the catalogue of supported jobs
 - The gate rules are instructions to the model, not technical locks. The browser extension's own permission prompts are the backstop.
 - Privacy rules follow India's DPDP Act 2023 and DPDP Rules 2025; this is design guidance, not legal advice.
 - It maps routes and fills forms. It doesn't give legal or tax advice; high-stakes points are flagged for a CA or lawyer.
-- **Prototype status:** four portal playbooks, none walked past the first gate. No real task has been completed end to end yet (see `evals/cases.md`, case 19).
+- **Coverage:** four portal playbooks in the repo. Real runs so far: RTI Online filed; IRCTC refund and TDS filled to submit (`evals/results-field.md`). Portals without a playbook are learned live, which is slower.
 
 ## Contributing
 

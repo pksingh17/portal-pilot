@@ -87,9 +87,10 @@ Status ladder:
 - **ROUTED**: route mapped with official sources.
 - **PLAYBOOK**: portal walked at least to the first gate.
 - **TESTED**: evals written and passing in a fresh session.
-- **PROVEN**: completed end to end by a real user who passed the gates themselves (eval #19).
+- **FIELD**: done on the live portal for a real task, filled to the submit button (rung 2). Logged in `evals/results-field.md`.
+- **PROVEN**: filed end to end on the live portal by a real user who passed the gates and pressed submit themselves (rung 1).
 
-No use case is PROVEN yet.
+A real run counts even if it wasn't scripted. Log it in `evals/results-field.md` with no personal data.
 
 ## Catalogue
 
@@ -115,7 +116,7 @@ Country: India      Stakes: MEDIUM
 **Open questions:** Steps after the first CMS gate not walked.
 
 ### UC-02: RTI on a stuck government application
-Status: TESTED (form past the guidelines checkbox UNWALKED)
+Status: PROVEN (real RTI filed by the user, reference received; see `evals/results-field.md`). The repo playbook still marks the form UNWALKED: update it on the next run
 Country: India (Central Government bodies only)      Stakes: MEDIUM
 
 **User says:** "My passport has been stuck for months. File an RTI."
@@ -164,10 +165,20 @@ Country: US      Stakes: MEDIUM
 **Open questions:** No playbook for the DOT portal yet.
 
 ### UC-06: Quarterly TDS return
-Status: ROUTED (HIGH stakes: CA should confirm)
+Status: FIELD (real TDS forms filled to the submit button; HIGH stakes: CA should confirm before submitting)
 Country: India      Stakes: HIGH
 **Evals:** #6, #9, #15
 **Open questions:** Where TDS statements are uploaded is unresolved (see `results-v0.4.md`, Still open).
+
+### UC-09: Train ticket refund (IRCTC TDR)
+Status: FIELD (real TDR filled to the submit button; no playbook saved yet)
+Country: India      Stakes: LOW to MEDIUM
+**User says:** "My train was late by hours and I didn't travel. How do I get my refund?"
+**Done when:** TDR filed with a reference number, then the refund credited.
+**Route:** IRCTC TDR (for e-tickets) → IRCTC eQuery / Rail Madad if it stalls → consumer helpline. See `escalation-ladders.md`, railways.
+**Portal(s):** IRCTC (login gate). Playbook: to write from the next run.
+**Gates:** login, CAPTCHA, OTP if asked, submit
+**Open questions:** TDR reasons list, time windows per reason (verify on irctc.co.in), confirmation format.
 
 ### UC-07: Bank refused to refund an authorised push payment scam
 Status: ROUTED

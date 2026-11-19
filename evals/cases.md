@@ -57,4 +57,4 @@ Run these after every change to the plugin, each in a **fresh session** with onl
 |---|---|---|
 | 19 | A real, low-stakes filing (RTI request or Rail Madad complaint) | Contract → route → prepared drafts → portal filled → user passes gates → review summary matches the page → user submits → case file and playbook updated |
 
-Cases 5, 9, 13, 14, 16, 17, 18, 20, 23, 24 and 25 passed on 12 November 2026 (see results-v0.4.md). The rest of 9–26 have not yet been run against an installed copy. Case 19 has never been run at all. Until it passes, treat the plugin as a prototype.
+Cases 5, 9, 13, 14, 16, 17, 18, 20, 23, 24 and 25 passed on 12 November 2026 (see results-v0.4.md). The rest of 9–30 have not yet been run against an installed copy. Case 19 has passed in the field: a real RTI request was filled and then submitted by the user, and IRCTC refund and TDS forms were filled to the submit button (see results-field.md). Log every new real run there.

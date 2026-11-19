@@ -86,7 +86,7 @@ Open a case file as soon as the contract is confirmed, for anything beyond a fin
 
 ## Step 1: Route
 
-Unless a current playbook or a bundled domain skill already settles it, send the contract to the **route-finder**. It returns a route card: every body in order, each with rules, official URL, a legitimacy verdict, and a **verbatim quote plus URL for every rule**.
+**Saved routes first.** Look for a matching saved route in this skill's `routes/` folder and the user's `portal-pilot/routes/` folder, and reuse it as `references/saved-routes.md` allows for the task's Stakes. Otherwise, unless a current playbook or a bundled domain skill already settles it, send the contract to the **route-finder**. It works in any country: there is no list of supported countries. It returns a route card: every body in order, each with rules, official URL, a legitimacy verdict, and a **verbatim quote plus URL for every rule**.
 
 Then verify, scaled to Stakes:
 - **LOW:** read the card; check the domains against `references/legitimacy.md`.
@@ -95,7 +95,9 @@ Then verify, scaled to Stakes:
 
 Anything that fails verification stays on the card as UNVERIFIED with where to confirm it. Never round an UNVERIFIED figure up to a fact.
 
-**Domain skills.** For Indian complaints, refunds and RTI requests, load the bundled `grievance-agent` skill and follow its route types, deadline protocol and letter templates. Portal Pilot runs the portal; the domain skill supplies the law. Outside India, never carry Indian deadlines or forums across borders, and apply the stricter of `references/privacy.md` and local data-protection law.
+Once the card is verified, **save it** to the user's `portal-pilot/routes/` folder (`references/saved-routes.md`), stripped of personal data, so the next task in that country starts warm.
+
+**Domain skills.** Some countries have a bundled deep pack. For Indian complaints, refunds and RTI requests, load the bundled `grievance-agent` skill and follow its route types, deadline protocol and letter templates. Portal Pilot runs the portal; the domain skill supplies the law. Everywhere else, the route-finder researches live. Never carry one country's deadlines or forums into another, and apply the stricter of `references/privacy.md` and local data-protection law. Explain the route in the user's language, but keep official quotes in the original with a translation.
 
 **Playbooks.** Look in this skill's `playbooks/` folder and in the user's `portal-pilot/playbooks/` folder. Check "Last walked": under 60 days, follow it; older, treat it as hints and let the operator explore. Save new and updated playbooks to the user's folder.
 

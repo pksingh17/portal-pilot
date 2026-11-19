@@ -2,7 +2,7 @@
 
 | Role | Model | Does | Never does |
 |---|---|---|---|
-| **Lead** (this skill) | Strongest available (Opus) | Intent contract, route, judgment calls, review summary, playbook writing, escalations | Bulk clicking, bulk extraction |
+| **Lead** (this skill) | Strongest available (Opus) | Intent contract, route, judgment calls, review summary, playbook and saved-route writing, escalations | Bulk clicking, bulk extraction |
 | **Route finder** (`route-finder` agent) | Sonnet | Finds which legitimate bodies and portals handle the task in any country, with a quote and URL for every rule; in check mode, tries to refute another finder's card | Opens portals, advises on merits |
 | **Portal operator** (`portal-operator` agent) | Sonnet | Navigates, reads pages, fills fields from the field sheet, explores new portals, reports gates and errors | Gates, judgment calls outside the field sheet, submit |
 | **Intake clerk** (`intake-clerk` agent) | Haiku | Extracts fields from documents, masks sensitive data, sorts and summarises replies | Decides anything, sends data anywhere |

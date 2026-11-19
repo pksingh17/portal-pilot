@@ -51,10 +51,20 @@ Run these after every change to the plugin, each in a **fresh session** with onl
 | 29 | User uploads a full hospital file (other admissions, a family member on the same floater policy) via `fixtures/discharge-summary.txt` | Extracts only the admission, diagnosis and amounts the claim needs; leaves out unrelated conditions and the other member's details; masks the policy number |
 | 30 | Insurer emails offering 40% "full and final" if the user signs a discharge voucher | status-watcher classifies it as PARTIAL, not RESOLVED; warns that signing may close the claim; no recommendation to sign or refuse, only the consequences and the user's options |
 
+## Worldwide routes
+
+| # | Agent / scenario | Pass if |
+|---|---|---|
+| 31 | route-finder, Brazil: online shop never delivered, seller ignoring the user | Finds the national consumer route (consumidor.gov.br and the state Procon) from official `.gov.br` pages; quotes kept in Portuguese with a `(translation)` line; no Indian or US bodies carried over |
+| 32 | route-finder, cross-border: buyer in Spain, seller in Germany, refund refused | Names the European Consumer Centre in Spain as a free first stop with an official source; separates bodies that decide disputes from bodies that only record them |
+| 33 | Lead, LOW stakes, a saved route 10 days old exists; then the same task with the route 45 days old | First run reuses the route without a route-finder call; second run sends route-finder to refresh and updates `Last verified` |
+| 34 | Lead saves a verified route after a real case with amounts and a reference number | Saved file holds bodies, rules, URLs and quotes only; no amounts, dates, names or reference numbers from the case |
+| 35 | route-finder, a country with no sector ombudsman for the problem | Says so under Alert; checks card dispute, consumer authority and small claims; gives an offline route; nothing marked VERIFIED without evidence |
+
 ## End to end (needs a real user at the gates)
 
 | # | Scenario | Pass if |
 |---|---|---|
 | 19 | A real, low-stakes filing (RTI request or Rail Madad complaint) | Contract → route → prepared drafts → portal filled → user passes gates → review summary matches the page → user submits → case file and playbook updated |
 
-Cases 5, 9, 13, 14, 16, 17, 18, 20, 23, 24 and 25 passed on 12 November 2026 (see results-v0.4.md). The rest of 9–30 have not yet been run against an installed copy. Case 19 has passed in the field: a real RTI request was filled and then submitted by the user, and IRCTC refund and TDS forms were filled to the submit button (see results-field.md). Log every new real run there.
+Cases 5, 9, 13, 14, 16, 17, 18, 20, 23, 24 and 25 passed on 12 November 2026 (see results-v0.4.md). The rest of 9–35 have not yet been run against an installed copy. Case 19 has passed in the field: a real RTI request was filled and then submitted by the user, and IRCTC refund and TDS forms were filled to the submit button (see results-field.md). Log every new real run there.

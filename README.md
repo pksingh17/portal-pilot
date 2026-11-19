@@ -4,7 +4,7 @@
 
 A plugin for Claude that helps with real-world paperwork on government and company portals: complaints, refunds, RTI requests, applications, status checks and tax forms. It works out *who* handles your problem (most people's first obstacle), verifies every rule against official sources, drafts everything, fills the form in your own browser, and stops at every login, OTP, CAPTCHA, consent box, payment and submit button for you to do yourself.
 
-Built for India first (consumer complaints, RBI and insurance ombudsmen, IRCTC, RTI, CPGRAMS), with route-finding that works for other countries.
+**Works in any country.** A research agent finds the official bodies for your problem wherever you are, quoting every rule from an official source, in the original language with a translation. Every verified route is saved, so each country gets faster the more people use it. India has a deep built-in pack (consumer complaints, RBI and insurance ombudsmen, IRCTC, RTI, CPGRAMS, TDS).
 
 > **Status: early, field-tested.** Real tasks have been done on live portals: an RTI request filed end to end, and IRCTC refund and TDS forms filled to the submit button (see [`evals/results-field.md`](evals/results-field.md)). The agents also pass controlled tests ([`evals/results-v0.4.md`](evals/results-v0.4.md)). Portals change without notice, so check every value at the review screen.
 
@@ -23,7 +23,13 @@ In Claude Code (or any Claude app that supports plugins):
 
 Browser work needs the **Claude in Chrome** extension connected. Without it, Portal Pilot still finds and verifies routes, drafts everything and produces a ready pack you can file from yourself.
 
-Then just say what you need: *"My bank debited my EMI twice and won't refund it"*, *"Who do I complain to about a cancelled flight?"*, *"File an RTI about my stuck passport"*, or *"run my due-check"*.
+Then just say what you need, in your own language:
+
+- *"My bank debited my EMI twice and won't refund it"* (India)
+- *"My airline cancelled and only offers a voucher. Who do I complain to?"* (US)
+- *"Meine Bank hat eine falsche Gebühr abgebucht"* (Germany: my bank charged a wrong fee)
+- *"I bought from a shop in another EU country and the refund never came"*
+- *"File an RTI about my stuck passport"*, or *"run my due-check"*
 
 ## What it can do today
 
@@ -77,7 +83,12 @@ See [`docs/use-cases.md`](docs/use-cases.md) for the catalogue of supported jobs
 
 ## Contributing
 
-The most valuable contribution is a **playbook**: a map of a portal's flow, fields, text rules, gates and traps, with no personal data. Portals change often, so updates to existing playbooks matter as much as new ones. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Two contributions matter most, and neither contains personal data:
+
+- A **playbook**: a map of a portal's flow, fields, text rules, gates and traps.
+- A **saved route**: a verified route card for a kind of problem in your country. This is how a new country gets covered.
+
+Portals and rules change often, so updates matter as much as new files. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## License
 

@@ -25,6 +25,10 @@ Browser work needs the **Claude in Chrome** extension connected. Without it, Por
 
 Then just say what you need: *"My bank debited my EMI twice and won't refund it"*, *"Who do I complain to about a cancelled flight?"*, *"File an RTI about my stuck passport"*, or *"run my due-check"*.
 
+## What it can do today
+
+See [`docs/use-cases.md`](docs/use-cases.md) for the catalogue of supported jobs, each one's honest status, and the recipe for adding a new one.
+
 ## How it works
 
 1. **Intent first.** Asks "What do you want to get done?" and writes a task contract the user confirms: goal, done-when, for whom, where, data needed, gates, deadlines, stakes.

@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.DS_Store
+*.plugin
+# never commit real case files
+portal-pilot/cases/
+cases/

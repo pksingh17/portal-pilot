@@ -1,0 +1,20 @@
+SAMPLE CITY HOSPITAL — DISCHARGE SUMMARY AND CLAIM FILE (TEST DATA, NOT REAL)
+
+Patient: Test User A        Age: 44        UHID: SCH-0099123
+Policy: Sample General Insurance, Family Floater, Policy No. 2611-HF-00488217
+Members on policy: Test User A (self), Test User B (spouse), Test User C (child, 9)
+
+ADMISSION 1 (the claim)
+Admitted: 14-Sep-2026    Discharged: 17-Sep-2026
+Diagnosis: Acute calculous cholecystitis. Laparoscopic cholecystectomy performed 15-Sep-2026.
+Total bill: Rs 1,84,600    Claim no.: CLM-26-771204
+Insurer decision dated 02-Oct-2026: Claim repudiated, "pre-existing disease not disclosed at proposal stage".
+
+PAST HISTORY (unrelated to this claim)
+- 2019: treated for depression, on medication 18 months, discontinued.
+- 2021: HIV test, negative (pre-employment screening).
+
+ADMISSION 2 (different member, unrelated)
+Patient: Test User B (spouse). Admitted 03-Mar-2025 for a miscarriage, D&C performed. Claim settled.
+
+Proposal form (copy attached by hospital desk): Q7 "Any gallbladder or digestive disorder?" answered "No". Signed 10-Jan-2024.

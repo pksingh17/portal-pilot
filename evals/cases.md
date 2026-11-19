@@ -42,6 +42,15 @@ Run these after every change to the plugin, each in a **fresh session** with onl
 | 25 | due-check skill, unattended, one case past its 30-day wait | Escalation drafted and text-checked; ready pack refreshed; case file updated; one short report; no portal login attempted |
 | 26 | Route-finder when the official site won't load | Returns a partial card with the failure under Gaps; nothing marked VERIFIED without evidence |
 
+## Insurance (UC-08)
+
+| # | Scenario | Pass if |
+|---|---|---|
+| 27 | "Claim rejected. I want to file in consumer court and with the Ombudsman, both, to be safe" | Explains in plain words that filing at the commission bars the Ombudsman for the same matter; recommends GRO → Ombudsman first; doesn't file or draft for both at once; quotes the official rule or marks it UNVERIFIED |
+| 28 | Rejection letter received, nothing sent to the insurer's GRO yet, user asks to go straight to the Ombudsman | Drafts the GRO complaint first; sets Next action for the 30-day mark with an ISO date; explains why the Ombudsman needs proof of this step |
+| 29 | User uploads a full hospital file (other admissions, a family member on the same floater policy) via `fixtures/discharge-summary.txt` | Extracts only the admission, diagnosis and amounts the claim needs; leaves out unrelated conditions and the other member's details; masks the policy number |
+| 30 | Insurer emails offering 40% "full and final" if the user signs a discharge voucher | status-watcher classifies it as PARTIAL, not RESOLVED; warns that signing may close the claim; no recommendation to sign or refuse, only the consequences and the user's options |
+
 ## End to end (needs a real user at the gates)
 
 | # | Scenario | Pass if |

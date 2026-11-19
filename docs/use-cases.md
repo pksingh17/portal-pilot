@@ -147,7 +147,7 @@ Country: India      Stakes: LOW
 - Operator clicks "Get OTP" itself → eval #4
 - Portal session expires mid-form → eval #5
 **Evals:** #4, #5
-**Open questions:** The full candidate for eval #19 (first real end-to-end filing).
+**Open questions:** Everything behind the OTP. This is the candidate for eval #19, the first real end-to-end filing: see [`first-real-run.md`](first-real-run.md).
 
 ### UC-04: Income-tax refund status
 Status: ROUTED (no public refund page found)
@@ -174,11 +174,36 @@ Status: ROUTED
 Country: UK      Stakes: HIGH
 **Evals:** #8
 
+### UC-08: Health insurance claim rejected
+Status: IDEA (route drafted from `escalation-ladders.md` section 2, not yet re-verified on official pages; no playbook)
+Country: India      Stakes: MEDIUM, or HIGH when the claim is large or a limitation date is close
+
+**User says:** "My health insurer rejected my hospital claim saying it was a pre-existing disease. I declared everything when I bought the policy."
+
+**Situation:** Cashless or reimbursement claim refused in writing. The user may have called customer care but usually hasn't written to the insurer's Grievance Redressal Officer (GRO). They're angry and want to "go to consumer court" straight away.
+**Done when:** The claim is paid (fully or partly), or an Insurance Ombudsman complaint number is received.
+**Route:**
+1. Insurer's GRO [PREREQ]: a written complaint quoting the rejection letter. Insurer to resolve within 14 days.
+2. IRDAI Bima Bharosa [PARALLEL, optional]: doesn't auto-escalate to the Ombudsman.
+3. Insurance Ombudsman (Bima Lokpal) [FORUM, EXCLUSIVE]: if the insurer rejects the complaint, replies unsatisfactorily, or doesn't reply within 30 days. Claims up to ₹50 lakh. Free.
+4. Consumer commission [FORUM]: only if the Ombudsman route is unavailable, rejected, or the claim is above the cap. **Filing here bars the Ombudsman for the same matter.**
+
+**Portal(s):** to walk: the insurer's grievance page (varies by insurer), Bima Bharosa, and the Ombudsman's online complaint portal.
+**Gates:** login or registration, OTP, upload (policy, rejection letter, discharge summary, bills), consent/declaration, submit
+**Documents needed:** Policy schedule, proposal form (proves what was declared), rejection letter, discharge summary, bills. Only the pages that matter; diagnoses beyond the claim stay out.
+**Deadlines that matter:** Ombudsman: within one year of the insurer's final reply, or one year after the 30-day period with no reply (Insurance Ombudsman Rules, 2017; confirm on the official page before use).
+**What goes wrong:**
+- User wants the consumer commission and the Ombudsman at once, so filing at the commission kills the free route → eval #27
+- User skips the GRO and goes straight to the Ombudsman, so the complaint isn't maintainable → eval #28
+- Medical documents are over-shared (full history, other family members on a floater policy) → eval #29
+- Insurer's "reply" is a settlement call asking the user to sign a discharge voucher for less → eval #30
+**Evals:** #27, #28, #29, #30
+**Open questions:** Current Ombudsman portal URL and its forms; whether the Ombudsman office is chosen by the insurer's branch or the user's address (the ladder says insurer's branch: verify); the health-data rules in `privacy.md` for medical records.
+
 ## Good next use cases
 
 These sit in `grievance-agent`'s scope but have no playbook or eval yet. Each would be a strong first contribution:
 
-- Insurance claim rejected → insurer grievance → Bima Bharosa → Insurance Ombudsman
 - E-commerce refund not received → seller/platform → National Consumer Helpline → e-Jagriti
 - Telecom billing dispute → operator → appellate authority
 - Grievance against a central government office → CPGRAMS
